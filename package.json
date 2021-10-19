@@ -1,5 +1,5 @@
 {
-    "name": "gitbook-plugin-anchors",
+    "name": "gitbook-plugin-anchors-with-target",
     "description": "Add Github style heading anchors to your Gitbook",
     "main": "index.js",
     "version": "0.7.1",
@@ -8,13 +8,13 @@
     "engines": {
         "gitbook": ">=2.5.0"
     },
-    "homepage": "https://github.com/rlmv/gitbook-plugin-anchors",
+    "homepage": "https://github.com/iminguez/gitbook-plugin-anchors-with-target",
     "repository": {
         "type": "git",
-        "url": "https://github.com/rlmv/gitbook-plugin-anchors.git"
+        "url": "https://github.com/iminguez/gitbook-plugin-anchors-with-target.git"
     },
     "bugs": {
-        "url": "https://github.com/rlmv/gitbook-plugin-anchors/issues"
+        "url": "https://github.com/iminguez/gitbook-plugin-anchors-with-target/issues"
     },
     "dependencies": {
         "cheerio": "*",
