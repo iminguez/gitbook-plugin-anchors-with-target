@@ -2,19 +2,14 @@ var cheerio = require('cheerio');
 var slug = require('github-slugid');
 
 // insert anchor link into section
-function insertAnchors(content) {
+function addTarget(content) {
     var $ = cheerio.load(content);
-    $(':header').each(function(i, elem) {
-        var header = $(elem);
-        var id = header.attr("id");
-        if (!id) {
-            id = slug(header.text());
-            header.attr("id", id);
+    $('a').each(function(i, elem) {
+        var link = $(elem);
+        var href = link.attr("href");
+        if (href && href.indexOf('#') === 0) {
+            link.attr('target', '_self');
         }
-        header.prepend('<a name="' + id + '" class="plugin-anchor" '
-                   + 'href="#' + id + ' target="_self">'
-                   + '<i class="fa fa-link" aria-hidden="true"></i>'
-                   + '</a>');
     });
     return $.html();
 }
@@ -26,7 +21,7 @@ module.exports = {
     },
     hooks: {
         "page": function(page) {
-            page.content = insertAnchors(page.content);
+            page.content = addTarget(page.content);
             return page;
         }
     }
